@@ -275,58 +275,7 @@ python inference_spsam_e2e.py --lora_weights ./outputs/lora_best.pt
 
 ---
 
-## 📊 实验结果
-
-### Memory 增强机制
-
-<p align="center">
-  <img src="assets/results/memory.png" alt="Memory Mechanism" width="80%">
-</p>
-
-### PASCAL-5i & COCO-20i — 与 SOTA 方法对比
-
-| 方法 | Backbone | PASCAL-5i 1-shot | PASCAL-5i 5-shot | COCO-20i 1-shot | COCO-20i 5-shot |
-|------|----------|:---:|:---:|:---:|:---:|
-| MSDNet | ResNet-101 | 64.70 | 70.80 | 48.50 | 55.30 |
-| QCLNet | ResNet-101 | — | 71.20 | 43.60 | 51.90 |
-| QCLNet | ResNet-50 | 64.30 | 69.50 | 42.30 | 50.00 |
-| MSDNet | ResNet-50 | 64.30 | 68.70 | 46.50 | 54.50 |
-| APANet | ResNet-101 | 64.00 | 68.00 | 41.90 | 46.40 |
-| FECANet | VGG-16 | 64.30 | 66.70 | 35.40 | 41.50 |
-| MCE | VGG-16 | 62.87 | 68.21 | — | — |
-| RePRI | ResNet-50 | 60.50 | 66.20 | 38.10 | 46.70 |
-| SiGCN | ResNet-50 | — | 68.50 | 41.40 | 48.00 |
-| IMR-HSNet | ResNet-50 | 61.10 | — | 42.40 | 44.40 |
-| **SP-SAM (Ours)** | — | **68.95** | **70.88** | **48.64** | **50.00** |
-
-> ✨ SP-SAM 无需任何训练，在 PASCAL-5i 1-shot 上达到 68.95% mIoU，超过所有训练方法。Training-free 做到 trained 的水准。
-
-### FSS-1000 — 与 SOTA 方法对比
-
-| 方法 | Backbone | FSS-1000 1-shot | FSS-1000 5-shot |
-|------|----------|:---:|:---:|
-| DCAMA | ResNet-101 | 88.30 | 89.10 |
-| DCAMA | ResNet-50 | 88.20 | 88.80 |
-| GF_SAM | — | 88.00 | 88.90 |
-| HSNet (HM) | ResNet-101 | 87.80 | 88.50 |
-| SSP | — | 87.30 | 88.60 |
-| HSNet | ResNet-101 | 86.50 | 88.50 |
-| SegGPT | ViT | 85.60 | 89.30 |
-| Annotation-free FSS | ResNet-50 | 85.70 | 87.90 |
-| **SP-SAM (Ours)** | — | **88.53** | **90.64** |
-
-> ✨ SP-SAM 在 FSS-1000 5-shot 上达到 90.64% mIoU，超过所有对比方法。
-
-### 消融实验 — 各模块贡献分析
-
-| 配置 | CMRS | Memory | Mask Prompt | COCO-20i 1-shot | PASCAL-5i 1-shot | FSS-1000 1-shot |
-|------|:---:|:-----:|:----------:|:---:|:---:|:---:|
-| Memory Only | ✗ | ✓ | ✗ | 31.07 | 53.16 | 80.55 |
-| CMRS Only | ✓ | ✗ | ✗ | 46.69 | 64.68 | 83.90 |
-| CMRS + Mask Prompt | ✓ | ✗ | ✓ | 47.79 | 66.35 | 85.64 |
-| **Full SP-SAM** | ✓ | ✓ | ✓ | **48.64** | **68.95** | **88.53** |
-
-> 🔬 CMRS 模块贡献最大（+15.6 mIoU vs Memory Only），Memory Refinement 进一步带来 +0.85~2.6 mIoU 增益
+## 📊 定性结果展示
 
 ### 多数据集分割可视化
 
@@ -344,7 +293,11 @@ python inference_spsam_e2e.py --lora_weights ./outputs/lora_best.pt
   <img src="assets/results/aurora_lora.png" alt="Aurora LoRA Fine-tuning" width="75%">
 </p>
 
-> 📌 以上所有数据为论文实验结果，采用 training-free 设置（无梯度更新 backbone），在单张 RTX 5060Ti 16GB 上完成。
+---
+
+## 📜 代码可用性
+
+> ⚠️ **隐私保护声明**: 由于本工作论文尚未正式发表，核心算法代码（SP-SAM 推理管道、CMRS 模块、Memory Refinement 模块）暂未公开。当前仓库提供数据集处理、评估框架、可视化工具、LoRA 微调模块及 DINOv3 分割组件等辅助代码。完整代码将在论文发表后开源。
 
 ---
 
