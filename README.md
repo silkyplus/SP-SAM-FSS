@@ -13,7 +13,7 @@
 </div>
 
 <p align="center">
-  <img src="assets/demo.png" alt="SP-SAM Framework Overview" width="95%">
+  <img src="assets/demo2.png" alt="SP-SAM Framework Overview" width="95%">
 </p>
 
 ---
