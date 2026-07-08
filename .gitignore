@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Model checkpoints
+*.pt
+*.pth
+*.safetensors
+
+# Results/Outputs
+*_results*/
+outputs/
+runs/
+satellite_results*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Datasets (too large)
+Pascal_SBD_VOC/
+coco20i/
+fewshot_data/
+jiguangdatasets/
+data/
+
+# Temp files
+*.tmp
+*.zip
+*.rar
+~$*
+*_copy*
+* copy*
