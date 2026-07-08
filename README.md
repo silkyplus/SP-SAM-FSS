@@ -12,6 +12,10 @@
 
 </div>
 
+<p align="center">
+  <img src="assets/figure1.png" alt="SP-SAM Framework Overview" width="95%">
+</p>
+
 ---
 
 ## 📋 项目简介
@@ -271,17 +275,31 @@ python inference_spsam_e2e.py --lora_weights ./outputs/lora_best.pt
 
 ---
 
-## 📊 预期结果
+## 📊 实验结果
 
-| 数据集 | 方法 | 1-shot mIoU | 5-shot mIoU |
-|--------|------|:----------:|:----------:|
-| PASCAL-5i | Rough Only | ~55% | ~62% |
-| PASCAL-5i | Memory Only | ~58% | ~65% |
-| PASCAL-5i | **CMRS (Ours)** | **~62%** | **~68%** |
-| COCO-20i | **CMRS (Ours)** | **~45%** | **~52%** |
-| FSS-1000 | **CMRS (Ours)** | **~82%** | **~87%** |
+### Memory 增强机制
 
-> 📌 以上为论文参考值，具体数值取决于模型版本和超参设置
+<p align="center">
+  <img src="assets/results/memory.png" alt="Memory Mechanism" width="80%">
+</p>
+
+### 多数据集少样本分割结果
+
+| PASCAL-5i | COCO-20i |
+|:---------:|:--------:|
+| ![pascal](assets/results/pascal.png) | ![coco](assets/results/coco.png) |
+
+| FSS-1000 | ISIC 2018 |
+|:--------:|:---------:|
+| ![fss1000](assets/results/FSS1000.png) | ![isic](assets/results/ISIC2018.png) |
+
+### LoRA 微调 — 极光领域适配
+
+<p align="center">
+  <img src="assets/results/aurora_lora.png" alt="Aurora LoRA Fine-tuning" width="75%">
+</p>
+
+> 📌 以上为 SP-SAM 在 4 个数据集上的实际分割可视化结果，包括自然图像与极光卫星专业领域。
 
 ---
 
